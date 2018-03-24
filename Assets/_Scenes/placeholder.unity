@@ -221,7 +221,7 @@ ConfigurableJoint:
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 1
   m_YMotion: 0
-  m_ZMotion: 0
+  m_ZMotion: 1
   m_AngularXMotion: 1
   m_AngularYMotion: 0
   m_AngularZMotion: 0
@@ -258,7 +258,7 @@ ConfigurableJoint:
   m_TargetVelocity: {x: 0, y: 0, z: 0}
   m_XDrive:
     serializedVersion: 3
-    positionSpring: 100
+    positionSpring: 500
     positionDamper: 0
     maximumForce: 3.4028233e+38
   m_YDrive:
@@ -268,7 +268,7 @@ ConfigurableJoint:
     maximumForce: 3.4028233e+38
   m_ZDrive:
     serializedVersion: 3
-    positionSpring: 100
+    positionSpring: 500
     positionDamper: 0
     maximumForce: 3.4028233e+38
   m_TargetRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -411,7 +411,7 @@ GameObject:
   - component: {fileID: 216854091}
   - component: {fileID: 216854090}
   - component: {fileID: 216854089}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sphere (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1019,7 +1019,7 @@ GameObject:
   - component: {fileID: 408168800}
   - component: {fileID: 408168799}
   - component: {fileID: 408168798}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -1208,7 +1208,7 @@ ConfigurableJoint:
   m_TargetVelocity: {x: 0, y: 0, z: 0}
   m_XDrive:
     serializedVersion: 3
-    positionSpring: 100
+    positionSpring: 200
     positionDamper: 0
     maximumForce: 3.4028233e+38
   m_YDrive:
@@ -1218,7 +1218,7 @@ ConfigurableJoint:
     maximumForce: 3.4028233e+38
   m_ZDrive:
     serializedVersion: 3
-    positionSpring: 100
+    positionSpring: 400
     positionDamper: 0
     maximumForce: 3.4028233e+38
   m_TargetRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -1316,7 +1316,7 @@ Transform:
   m_Children:
   - {fileID: 855912303}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &855912302
 GameObject:
@@ -1358,6 +1358,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c00f4b3f571bab478ca22b8524010ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &870682994
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4903477047077492, guid: 63d73d33456d22442bfae5a3f6727cf5, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 78.67596
+      objectReference: {fileID: 0}
+    - target: {fileID: 4903477047077492, guid: 63d73d33456d22442bfae5a3f6727cf5, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 73.782906
+      objectReference: {fileID: 0}
+    - target: {fileID: 4903477047077492, guid: 63d73d33456d22442bfae5a3f6727cf5, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 49.368053
+      objectReference: {fileID: 0}
+    - target: {fileID: 4903477047077492, guid: 63d73d33456d22442bfae5a3f6727cf5, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4903477047077492, guid: 63d73d33456d22442bfae5a3f6727cf5, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4903477047077492, guid: 63d73d33456d22442bfae5a3f6727cf5, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4903477047077492, guid: 63d73d33456d22442bfae5a3f6727cf5, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4903477047077492, guid: 63d73d33456d22442bfae5a3f6727cf5, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 63d73d33456d22442bfae5a3f6727cf5, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &903404364
 GameObject:
   m_ObjectHideFlags: 0
@@ -1613,7 +1655,7 @@ Transform:
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1002143716
 Prefab:
@@ -2024,7 +2066,7 @@ GameObject:
   - component: {fileID: 1076613633}
   - component: {fileID: 1076613632}
   - component: {fileID: 1076613630}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2430,7 +2472,7 @@ Transform:
   - {fileID: 1076613629}
   - {fileID: 1826283409}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1180428855
 GameObject:
@@ -2446,7 +2488,7 @@ GameObject:
   - component: {fileID: 1180428859}
   - component: {fileID: 1180428858}
   - component: {fileID: 1180428857}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sphere (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2723,7 +2765,7 @@ GameObject:
   - component: {fileID: 1307407235}
   - component: {fileID: 1307407234}
   - component: {fileID: 1307407233}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2847,7 +2889,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1333613227}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CameraRoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3198,7 +3240,7 @@ GameObject:
   - component: {fileID: 1532697085}
   - component: {fileID: 1532697084}
   - component: {fileID: 1532697083}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sphere (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3520,7 +3562,7 @@ Transform:
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1797447590
 GameObject:
@@ -4239,7 +4281,7 @@ ConfigurableJoint:
   m_TargetVelocity: {x: 0, y: 0, z: 0}
   m_XDrive:
     serializedVersion: 3
-    positionSpring: 100
+    positionSpring: 200
     positionDamper: 0
     maximumForce: 3.4028233e+38
   m_YDrive:
@@ -4249,7 +4291,7 @@ ConfigurableJoint:
     maximumForce: 3.4028233e+38
   m_ZDrive:
     serializedVersion: 3
-    positionSpring: 100
+    positionSpring: 400
     positionDamper: 0
     maximumForce: 3.4028233e+38
   m_TargetRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -4370,7 +4412,7 @@ GameObject:
   - component: {fileID: 2048241321}
   - component: {fileID: 2048241320}
   - component: {fileID: 2048241319}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4694,7 +4736,7 @@ ConfigurableJoint:
   m_TargetVelocity: {x: 0, y: 0, z: 0}
   m_XDrive:
     serializedVersion: 3
-    positionSpring: 100
+    positionSpring: 200
     positionDamper: 0
     maximumForce: 3.4028233e+38
   m_YDrive:
@@ -4704,7 +4746,7 @@ ConfigurableJoint:
     maximumForce: 3.4028233e+38
   m_ZDrive:
     serializedVersion: 3
-    positionSpring: 100
+    positionSpring: 400
     positionDamper: 0
     maximumForce: 3.4028233e+38
   m_TargetRotation: {x: 0, y: 0, z: 0, w: 1}
