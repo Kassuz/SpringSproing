@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4903477047077492}
   - component: {fileID: 114487166680650634}
+  - component: {fileID: 114714486988234840}
   m_Layer: 0
   m_Name: CityManager
   m_TagString: Untagged
@@ -65,3 +66,18 @@ MonoBehaviour:
   xStreet: {fileID: 1596603604468510, guid: f633aa1ede2f3cf40a51aba598fd156c, type: 2}
   zStreet: {fileID: 1227664244776762, guid: 6ab4926ec73f96e4db6f928385295b00, type: 2}
   crossRoad: {fileID: 1460295434624004, guid: 9f43f14611248c840857ccc9c5f90f2a, type: 2}
+--- !u!114 &114714486988234840
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1254781789050776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5f3fc0cc6688dc4397fbba2ed5689e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pools:
+  - tag: building
+    prefab: {fileID: 1632157833474492, guid: 2d3d12465b9e9ef4dab3c91cd2047acf, type: 2}
+    size: 20

@@ -7,10 +7,11 @@ public class Buildings : MonoBehaviour {
 
     public Material[] windows;
     public GameObject[] buildingBlock;
+    public Vector3[] buildingBlockPos;
     Rigidbody rb, otherRb, childRB;
     Renderer rend;
 
-    void Start()
+    void Awake()
     {
         rb = GetComponent<Rigidbody>();
 
@@ -19,6 +20,9 @@ public class Buildings : MonoBehaviour {
             buildingBlock[i] = gameObject.transform.GetChild(i).gameObject;
             rend = buildingBlock[i].GetComponent<Renderer>();
             rend.material = windows[Random.Range(0, windows.Length)];
+
+            buildingBlockPos[i] = buildingBlock[i].transform.position;
+            Debug.Log(buildingBlock[i].transform.position);
         }
     }
 
@@ -29,9 +33,21 @@ public class Buildings : MonoBehaviour {
         {
             childRB = buildingBlock[i].GetComponent<Rigidbody>();
             childRB.isKinematic = false;
-            
-        }
-        //Debug.Log(otherRb.velocity);
+            childRB.AddExplosionForce(1000f, transform.position, 50f);
+        } 
+    }
+
+    private void OnDisable()
+    {
+        Debug.Log("ena");
+    }
+    private void OnEnable()
+    {
         
+        for (int i = 0; i < buildingBlock.Length; i++)
+        {
+            //buildingBlock[i].transform.position = buildingBlockPos[i];
+            //Debug.Log(buildingBlock[i].transform.position);
+        }
     }
 }
