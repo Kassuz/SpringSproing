@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1254781789050776}
+  m_IsPrefabParent: 1
+--- !u!1 &1254781789050776
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4903477047077492}
+  - component: {fileID: 114487166680650634}
+  m_Layer: 0
+  m_Name: CityManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4903477047077492
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1254781789050776}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114487166680650634
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1254781789050776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c89536ae09e18e34f99fdd367df683a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildings:
+  - {fileID: 1196834072514862, guid: e4d4a65f603adb04e9b45bed65106bd5, type: 2}
+  - {fileID: 1956787627919602, guid: f549be5a4f3373f43a0e4d99b2428967, type: 2}
+  - {fileID: 1375610281044958, guid: 139d892d80379e1459d9dc3f78d1316a, type: 2}
+  - {fileID: 1085176873750498, guid: 8dd8dba20ae265f4ab6b30a7b5d8ad35, type: 2}
+  - {fileID: 1361499616589778, guid: 226520d0608c5b24f86d99b20f286839, type: 2}
+  - {fileID: 1769812022325792, guid: 6150caaa59a80ea4eb1996e1a6cb83ae, type: 2}
+  mapWidth: 40
+  mapHeight: 40
+  spaceBetweenBuildings: 3
+  seed: 2
+  xStreet: {fileID: 1596603604468510, guid: f633aa1ede2f3cf40a51aba598fd156c, type: 2}
+  zStreet: {fileID: 1227664244776762, guid: 6ab4926ec73f96e4db6f928385295b00, type: 2}
+  crossRoad: {fileID: 1460295434624004, guid: 9f43f14611248c840857ccc9c5f90f2a, type: 2}
