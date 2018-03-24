@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4737285213974754}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BuildingBlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 33722490244651144}
   - component: {fileID: 65112924035052460}
   - component: {fileID: 23110434677055220}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Part_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 33660520007209352}
   - component: {fileID: 65117757347334374}
   - component: {fileID: 23862954131319054}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_block_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
