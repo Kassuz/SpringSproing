@@ -23,6 +23,7 @@ public class ArmsController : MonoBehaviour
     public ConfigurableJoint testJoint;
     public Rigidbody head;
     public Rigidbody torso;
+    public ParticleSystem jumpEffect;
     bool grounded;
 
     private void Awake()
@@ -71,6 +72,7 @@ public class ArmsController : MonoBehaviour
             rb.AddForce(Vector3.up * 60f, ForceMode.Impulse);
             head.AddForce(Vector3.up * 3f, ForceMode.Impulse);
             torso.AddForce(Vector3.up * 60f, ForceMode.Impulse);
+            jumpEffect.Play();
         }
         
     }
