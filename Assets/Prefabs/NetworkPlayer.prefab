@@ -2147,7 +2147,7 @@ MonoBehaviour:
   maxSpeed: 5
   rotationSpeed: -2
   maxRotationSpeed: 2
-  camera: {fileID: 20806447267352534}
+  cameraObj: {fileID: 1323283393703166}
   cameraRoot: {fileID: 4316736579814370}
   cameraYTurnSpeed: 35
   leftWeapon: {fileID: 54710535443261218}

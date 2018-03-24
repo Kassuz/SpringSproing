@@ -23,7 +23,7 @@ public class NetworkedPlayer : NetworkBehaviour
 
     [Space()]
     [Header("Camera")]
-    [SerializeField] private Camera camera;
+    [SerializeField] private GameObject cameraObj;
     [SerializeField] private Transform cameraRoot;
     [SerializeField] private float cameraYTurnSpeed = 40.0f;
 
@@ -48,15 +48,10 @@ public class NetworkedPlayer : NetworkBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    public override void OnStartLocalPlayer()
-    {
-        
-    }
-
     private void Start()
     {
         if (!isLocalPlayer)
-            camera.enabled = false;
+            cameraObj.SetActive(false);
     }
 
     private void OnCollisionStay(Collision collision)
