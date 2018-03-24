@@ -8,6 +8,9 @@ public class InputManager : MonoBehaviour
     public float P1InputLeftY  { get; private set; }
     public float P1InputRightX { get; private set; }
     public float P1InputRightY { get; private set; }
+    public float P1LeftTrigger { get; private set; }
+    public float P1RightTrigger { get; private set; }
+    public float P1JumpButton { get; private set; }
 
     public float P2InputLeftX  { get; private set; }
     public float P2InputLeftY  { get; private set; }
@@ -28,6 +31,9 @@ public class InputManager : MonoBehaviour
         P1InputLeftY  =  Input.GetAxis("P1 leftstick y");
         P1InputRightX =  Input.GetAxis("P1 rightstick x");
         P1InputRightY =  Input.GetAxis("P1 rightstick y");
+        P1LeftTrigger = Input.GetAxis("P1 leftTrigger");
+        P1JumpButton = Input.GetAxis("P1 jump");
+
 
         P2InputLeftX  =  Input.GetAxis("P2 leftstick x");
         P2InputLeftY  =  Input.GetAxis("P2 leftstick y");

@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 23325791987841618}
   m_Layer: 0
   m_Name: CrossRoad
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 4829374174056202}
   m_Layer: 0
   m_Name: Road_horizontal
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
