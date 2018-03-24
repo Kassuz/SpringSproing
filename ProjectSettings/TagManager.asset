@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+  - DestructableBuilding
+  - Destroyer
   layers:
   - Default
   - TransparentFX
@@ -23,9 +25,9 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
+  - Child block
+  - Parent block
+  - Destructable Building
   - 
   - 
   - 

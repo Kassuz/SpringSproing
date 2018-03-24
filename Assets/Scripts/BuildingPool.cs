@@ -12,8 +12,13 @@ public class BuildingPool : MonoBehaviour {
         public int size;
     }
 
-    public List<Pool> pools;
+    public static BuildingPool Instance;
+    private void Awake()
+    {
+        Instance = this;
+    }
 
+    public List<Pool> pools;
     public Dictionary<string, Queue<GameObject>> poolDictionary;
 
 	void Start () {
@@ -31,14 +36,29 @@ public class BuildingPool : MonoBehaviour {
             }
 
             poolDictionary.Add(pool.tag, objectPool);
+
+            
         }
-        InvokeRepeating("NewHouse", 1f, 1f);
-    }
-
-
-    public void NewHouse()
-    {
         
     }
 
+    public GameObject SpawnFromPool(string tag, Vector3 position, Quaternion rotation)
+    {
+        if (!poolDictionary.ContainsKey(tag))
+        {
+            Debug.Log("tag " + tag + " doesn't exists");
+            return null;
+        }
+
+        GameObject objToSpawn = poolDictionary[tag].Dequeue();
+        objToSpawn.SetActive(true);
+        objToSpawn.transform.position = position;
+        objToSpawn.transform.rotation = rotation;
+        poolDictionary[tag].Enqueue(objToSpawn);
+
+        return objToSpawn;
+    }
+
+    
+    
 }
