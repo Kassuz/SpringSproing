@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4455004545918732}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BuildingMedium
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 33178067375487664}
   - component: {fileID: 65739375362417816}
   - component: {fileID: 23408398433668822}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building_medium
   m_TagString: Untagged
   m_Icon: {fileID: 0}
