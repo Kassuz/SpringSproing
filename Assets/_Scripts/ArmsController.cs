@@ -9,6 +9,7 @@ public class ArmsController : MonoBehaviour
     [Header("Movement")]
     [SerializeField] private float maxSpeed;
     [SerializeField] private float rotationSpeed;
+    [SerializeField] private float maxRotationSpeed;
 
     [Space()]
     [Header("Camera")]
@@ -24,13 +25,29 @@ public class ArmsController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector3 movement = new Vector3(InputManager.Instance.P1InputLeftX, 0.0f, InputManager.Instance.P2InputLeftY);
-        movement *= maxSpeed;
+        Movement();
+        
+        if (Mathf.Abs(rb.angularVelocity.y) < maxRotationSpeed)
+        {
+            float rotSpeed = -InputManager.Instance.P1InputRightX * rotationSpeed;
+            rb.rotation *= Quaternion.AngleAxis(rotSpeed, Vector3.up);
+        }
+        Debug.Log(rb.angularVelocity);
+    }
 
-        rb.velocity = movement;
+    void Movement()
+    {
+        Vector3 localVel = transform.InverseTransformDirection(rb.velocity);
 
-        float rotSpeed = - InputManager.Instance.P1InputRightX * rotationSpeed * Time.fixedDeltaTime;
-        rb.rotation *= Quaternion.AngleAxis(rotSpeed, Vector3.up);
+        if (Mathf.Abs(localVel.z) < maxSpeed)
+        {
+            rb.AddForce(transform.forward * InputManager.Instance.P1InputLeftY * -150f);
+        }
+
+        if (Mathf.Abs(localVel.x) < maxSpeed)
+        {
+            rb.AddForce(transform.right * InputManager.Instance.P1InputLeftX * 150f);
+        }
     }
 
     private void LateUpdate()
