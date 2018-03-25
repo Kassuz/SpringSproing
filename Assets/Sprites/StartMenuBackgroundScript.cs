@@ -12,6 +12,5 @@ public class StartMenuBackgroundScript : MonoBehaviour {
         }
 
         if (transform.position.z < 2f) transform.position = new Vector3(transform.position.x, transform.position.y, 2f);
-        Debug.Log(Time.time);
 	}
 }

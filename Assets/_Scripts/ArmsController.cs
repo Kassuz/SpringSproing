@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class ArmsController : MonoBehaviour
 {
@@ -15,19 +16,23 @@ public class ArmsController : MonoBehaviour
     [Header("Camera")]
     [SerializeField] private Transform cameraRoot;
     [SerializeField] private float cameraYTurnSpeed = 40.0f;
-
+    public AudioClip bicycleClip;
+    public AudioClip[] fartNoises;
     public int player;
     private Rigidbody rb;
     public Rigidbody head;
     public Rigidbody torso;
     public ParticleSystem jumpEffect;
+    public ParticleSystem poopEffect;
     public WeaponScript weaponScript;
-    bool grounded;
+    bool grounded, soundPlaying;
+    AudioSource aSource;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
         weaponScript.SetPlayerNumber(player);
+        aSource = GetComponent<AudioSource>();
     }
 
     private void OnCollisionStay(Collision collision)
@@ -72,6 +77,7 @@ public class ArmsController : MonoBehaviour
                 head.AddForce(Vector3.up * 3f, ForceMode.Impulse);
                 torso.AddForce(Vector3.up * 60f, ForceMode.Impulse);
                 jumpEffect.Play();
+                poopEffect.Play();
             }
         }
         else
@@ -101,9 +107,23 @@ public class ArmsController : MonoBehaviour
             }
         }
 
+        if (rb.velocity.magnitude > 3f)
+        {
+            aSource.clip = bicycleClip;
+            aSource.loop = true;
+
+            if (!soundPlaying)
+            {
+                aSource.Play();
+                soundPlaying = true;
+            }
+        }
+        else
+        {
+            
+        }
         
     }
-
 
     private void LateUpdate()
     {
@@ -124,5 +144,12 @@ public class ArmsController : MonoBehaviour
         }
 
     }
+
+    IEnumerator PlaySound()
+    {
+        yield return null;
+    }
+
+
 
 }
