@@ -12,6 +12,8 @@ public class WeaponScript : MonoBehaviour {
     public Rigidbody player2Rig;
     public GameControllerScript gameController;
     public ParticleSystem partikkeleja;
+    public AudioSource audioS;
+    public AudioClip[] hitSounds;
 
     private void Awake()
     {
@@ -35,6 +37,7 @@ public class WeaponScript : MonoBehaviour {
                 player2Rig.AddForce((player2Rig.transform.position - transform.position) * collision.relativeVelocity.magnitude * 2f, ForceMode.Impulse);
                 player2Rig.AddForce(Vector3.up, ForceMode.Impulse);
                 partikkeleja.Play();
+                audioS.PlayOneShot(hitSounds[Random.Range(0, hitSounds.Length)]);
             }
 
         }
@@ -49,6 +52,7 @@ public class WeaponScript : MonoBehaviour {
                 player1Rig.AddForce((player1Rig.transform.position - transform.position) * collision.relativeVelocity.magnitude * 2f, ForceMode.Impulse);
                 player1Rig.AddForce(Vector3.up, ForceMode.Impulse);
                 partikkeleja.Play();
+                audioS.PlayOneShot(hitSounds[Random.Range(0, hitSounds.Length)]);
             }
         }
     }

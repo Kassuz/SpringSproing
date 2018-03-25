@@ -16,8 +16,9 @@ public class ArmsController : MonoBehaviour
     [Header("Camera")]
     [SerializeField] private Transform cameraRoot;
     [SerializeField] private float cameraYTurnSpeed = 40.0f;
-    public AudioClip bicycleClip;
+ 
     public AudioClip[] fartNoises;
+    public AudioClip[] soundSfx;
     public int player;
     private Rigidbody rb;
     public Rigidbody head;
@@ -26,13 +27,18 @@ public class ArmsController : MonoBehaviour
     public ParticleSystem poopEffect;
     public WeaponScript weaponScript;
     bool grounded, soundPlaying;
-    AudioSource aSource;
+
+    public AudioSource bicycleAudio;
+    public AudioSource sfxAudio;
+
+    private float nextSoundSfx = 3.0f;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
         weaponScript.SetPlayerNumber(player);
-        aSource = GetComponent<AudioSource>();
+        //aSource = GetComponent<AudioSource>();
+        bicycleAudio.Pause();
     }
 
     private void OnCollisionStay(Collision collision)
@@ -43,6 +49,19 @@ public class ArmsController : MonoBehaviour
     private void OnCollisionExit(Collision collision)
     {
         if (collision.transform.tag == "Ground") grounded = false;
+    }
+
+    private void Update()
+    {
+        if (nextSoundSfx <= 0.0f)
+        {
+            sfxAudio.PlayOneShot(soundSfx[Random.Range(0, soundSfx.Length)]);
+            nextSoundSfx = Random.Range(1.5f, 5.0f);
+        }
+        else
+        {
+            nextSoundSfx -= Time.deltaTime;
+        }
     }
 
     private void FixedUpdate()
@@ -78,6 +97,7 @@ public class ArmsController : MonoBehaviour
                 torso.AddForce(Vector3.up * 60f, ForceMode.Impulse);
                 jumpEffect.Play();
                 poopEffect.Play();
+                sfxAudio.PlayOneShot(fartNoises[Random.Range(0, fartNoises.Length)]);
             }
         }
         else
@@ -107,20 +127,14 @@ public class ArmsController : MonoBehaviour
             }
         }
 
-        if (rb.velocity.magnitude > 3f)
+        if (rb.velocity.magnitude > 0.5f)
         {
-            aSource.clip = bicycleClip;
-            aSource.loop = true;
-
-            if (!soundPlaying)
-            {
-                aSource.Play();
-                soundPlaying = true;
-            }
+            if (!bicycleAudio.isPlaying)
+                bicycleAudio.UnPause();
         }
         else
         {
-            
+            bicycleAudio.Pause();
         }
         
     }
