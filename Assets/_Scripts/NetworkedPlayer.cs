@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Networking;
+using System.Collections.Generic;
 
 public class NetworkedPlayer : NetworkBehaviour
 {
@@ -10,6 +11,14 @@ public class NetworkedPlayer : NetworkBehaviour
         public float rightXAxis;
         public float rightYAxis;
         public float jumpAxis;
+    }
+
+    public struct PlayerState
+    {
+        public Vector3 position;
+        public Quaternion rotation;
+        public Vector3 velocity;
+        public Vector3 angularVelocity;
     }
 
     [SerializeField] private Rigidbody leftArm;
@@ -26,22 +35,23 @@ public class NetworkedPlayer : NetworkBehaviour
     [SerializeField] private GameObject cameraObj;
     [SerializeField] private Transform cameraRoot;
     [SerializeField] private float cameraYTurnSpeed = 40.0f;
-
-    private Rigidbody rb;
     
     [Space()]
     [Header("Tommi stuff")]
-    public Rigidbody leftWeapon;
-    public SpringJoint shieldSpring;
-    public Transform testTransform;
-    public ConfigurableJoint testJoint;
     public Rigidbody head;
     public Rigidbody torso;
     public ParticleSystem jumpEffect;
-    bool grounded;
+
+    private Rigidbody rb;
+    private bool grounded;
 
     [SyncVar]
     private PlayerInput input;
+    [SyncVar]
+    private PlayerState state;
+
+    private PlayerState predictedState;
+    private List<PlayerInput> pendingMoves;
 
     private void Awake()
     {
@@ -52,6 +62,8 @@ public class NetworkedPlayer : NetworkBehaviour
     {
         if (!isLocalPlayer)
             cameraObj.SetActive(false);
+        else
+            pendingMoves = new List<PlayerInput>();
     }
 
     private void OnCollisionStay(Collision collision)
@@ -67,12 +79,15 @@ public class NetworkedPlayer : NetworkBehaviour
     private void FixedUpdate()
     {
         if (isLocalPlayer)
-            CmdSetInputOnServer(GetInput());
+            CmdMoveOnServer(GetInput());
 
-        Movement(input);
+        //if (!isServer)
+        //    Movement(input);
+        
+        SyncState();
     }
 
-    private void Movement(PlayerInput input)
+    private PlayerState Movement(PlayerInput input)
     {
         Vector3 localVel = transform.InverseTransformDirection(rb.velocity);
 
@@ -100,6 +115,8 @@ public class NetworkedPlayer : NetworkBehaviour
             jumpEffect.Play();
         }
         
+        return new PlayerState { position = rb.position, rotation = rb.rotation, 
+                                 velocity = rb.velocity, angularVelocity = rb.angularVelocity };
     }
 
     private void LateUpdate()
@@ -123,9 +140,18 @@ public class NetworkedPlayer : NetworkBehaviour
         return i;
     }
 
+    private void SyncState()
+    {
+        rb.position = state.position;
+        rb.rotation = state.rotation;
+        rb.velocity = state.velocity;
+        rb.angularVelocity = state.angularVelocity;
+    }
+
     [Command]
-    private void CmdSetInputOnServer(PlayerInput newInput)
+    private void CmdMoveOnServer(PlayerInput newInput)
     {
         input = newInput;
+        state = Movement(newInput);
     }
 }

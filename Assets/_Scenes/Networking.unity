@@ -152,26 +152,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 114337040021024504, guid: d9fa7e552d5c32c4290f6a8e873acf87,
-        type: 2}
-      propertyPath: m_UseSimulator
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114337040021024504, guid: d9fa7e552d5c32c4290f6a8e873acf87,
-        type: 2}
-      propertyPath: m_SimulatedLatency
-      value: 102
-      objectReference: {fileID: 0}
-    - target: {fileID: 114337040021024504, guid: d9fa7e552d5c32c4290f6a8e873acf87,
-        type: 2}
-      propertyPath: m_PacketLossPercentage
-      value: 5.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114337040021024504, guid: d9fa7e552d5c32c4290f6a8e873acf87,
-        type: 2}
-      propertyPath: m_NetworkAddress
-      value: 172.31.20.17
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d9fa7e552d5c32c4290f6a8e873acf87, type: 2}
   m_IsPrefabParent: 0
