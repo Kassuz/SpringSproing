@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TitleAudio : MonoBehaviour
 {
-
+    public GameObject menu;
     AudioSource source;
 
 
@@ -23,6 +24,6 @@ public class TitleAudio : MonoBehaviour
     {
         yield return new WaitForSeconds(1.2f);
         source.Play();
-        
+        menu.SetActive(true);
     }
 }
