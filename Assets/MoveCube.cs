@@ -15,7 +15,7 @@ public class MoveCube : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("DestructableBuilding"))// && rb.velocity.magnitude > cubeForce)
+        if (collision.gameObject.CompareTag("DestructableBuilding")) //&& rb.velocity.magnitude > cubeForce)
         {
             Debug.Log(collision.gameObject.name);
             Vector3 spawnPos = collision.transform.parent.transform.position;

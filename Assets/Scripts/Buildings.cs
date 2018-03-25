@@ -37,13 +37,14 @@ public class Buildings : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("sdafsfa");
         for (int i = 0; i < buildingBlock.Length; i++)
         {
             //childRB = buildingBlock[i].GetComponent<Rigidbody>();
             buildingBlockRig[i].isKinematic = false;
 
             if(i < 10)
-                buildingBlockRig[i].AddExplosionForce(1000f, transform.position, 5f);
+                buildingBlockRig[i].AddExplosionForce(1000f, transform.position, 10f);
         } 
     }
 
