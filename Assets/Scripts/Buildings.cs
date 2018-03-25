@@ -22,7 +22,6 @@ public class Buildings : MonoBehaviour {
             rend.material = windows[Random.Range(0, windows.Length)];
 
             buildingBlockPos[i] = buildingBlock[i].transform.position;
-            Debug.Log(buildingBlock[i].transform.position);
         }
     }
 
@@ -39,7 +38,7 @@ public class Buildings : MonoBehaviour {
 
     private void OnDisable()
     {
-        Debug.Log("ena");
+
     }
     private void OnEnable()
     {

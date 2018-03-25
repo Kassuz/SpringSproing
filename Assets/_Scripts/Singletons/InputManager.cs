@@ -16,6 +16,9 @@ public class InputManager : MonoBehaviour
     public float P2InputLeftY  { get; private set; }
     public float P2InputRightX { get; private set; }
     public float P2InputRightY { get; private set; }
+    public float P2LeftTrigger { get; private set; }
+    public float P2RightTrigger { get; private set; }
+    public float P2JumpButton { get; private set; }
 
     private void Awake()
     {
@@ -39,5 +42,6 @@ public class InputManager : MonoBehaviour
         P2InputLeftY  =  Input.GetAxis("P2 leftstick y");
         P2InputRightX =  Input.GetAxis("P2 rightstick x");
         P2InputRightY =  Input.GetAxis("P2 rightstick y");
+        P2JumpButton = Input.GetAxis("P2 jump");
     }
 }
