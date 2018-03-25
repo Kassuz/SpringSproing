@@ -26021,7 +26021,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4daf439a56a64a41bc9defcad2b882f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  windows: []
   buildingBlock:
   - {fileID: 1990555775039140}
   - {fileID: 1722349155036710}
@@ -26282,3 +26281,4 @@ MonoBehaviour:
   - {fileID: 1302360828268444}
   buildingBlockPos: []
   buildingBlockRot: []
+  buildingBlockRig: []

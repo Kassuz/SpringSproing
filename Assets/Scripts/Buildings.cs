@@ -11,7 +11,7 @@ public class Buildings : MonoBehaviour {
     public List<Vector3> buildingBlockPos = new List<Vector3>();
     public List<Quaternion> buildingBlockRot = new List<Quaternion>();
     public List<Rigidbody> buildingBlockRig = new List<Rigidbody>();
-    Rigidbody rb, otherRb, childRB;
+    Rigidbody rb, childRB;
     //Renderer rend;
 
     void Awake()
@@ -37,14 +37,13 @@ public class Buildings : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        otherRb = other.GetComponent<Rigidbody>();
         for (int i = 0; i < buildingBlock.Length; i++)
         {
-            childRB = buildingBlock[i].GetComponent<Rigidbody>();
-            childRB.isKinematic = false;
+            //childRB = buildingBlock[i].GetComponent<Rigidbody>();
+            buildingBlockRig[i].isKinematic = false;
 
-            if(i < 3)
-                childRB.AddExplosionForce(1000f, transform.position, 5f);
+            if(i < 10)
+                buildingBlockRig[i].AddExplosionForce(1000f, transform.position, 5f);
         } 
     }
 

@@ -6629,8 +6629,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4daf439a56a64a41bc9defcad2b882f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  windows:
-  - {fileID: 2100000, guid: 0ac069cba56d46140a36dcb0e55a8bfc, type: 2}
   buildingBlock:
   - {fileID: 1873921399535554}
   - {fileID: 1030231558593086}
@@ -6699,3 +6697,4 @@ MonoBehaviour:
   - {fileID: 1544811278450948}
   buildingBlockPos: []
   buildingBlockRot: []
+  buildingBlockRig: []

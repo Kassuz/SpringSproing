@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 23010260168188380}
   m_Layer: 0
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -141,15 +141,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plane: {fileID: 4808511693517352}
   buildings:
-  - {fileID: 1577219486645396, guid: 8e6cb78f38be72142befe2c0ff68c571, type: 2}
-  - {fileID: 1577219486645396, guid: 06289068fede8f146b79bd667cc9e1f3, type: 2}
-  - {fileID: 1577219486645396, guid: e5c3ea267f9826a47978f1cbe4d3b60b, type: 2}
-  - {fileID: 1577219486645396, guid: 8e6cb78f38be72142befe2c0ff68c571, type: 2}
-  - {fileID: 1577219486645396, guid: 06289068fede8f146b79bd667cc9e1f3, type: 2}
-  - {fileID: 1577219486645396, guid: e5c3ea267f9826a47978f1cbe4d3b60b, type: 2}
+  - {fileID: 1817145373560776, guid: b4cbe191686919549acf5377bbacffc0, type: 2}
+  - {fileID: 1539254365035962, guid: c3d80f25e263bcf4b896c0190c9c472c, type: 2}
+  - {fileID: 1371566439635294, guid: 76c119e5904dae747be4f5a3812c5b37, type: 2}
+  - {fileID: 1842953257728962, guid: caf2c08425d61314daa12dcf524f74ed, type: 2}
+  - {fileID: 1350935293615516, guid: 30c101e11885f85469fddcb7a8d71e4a, type: 2}
+  - {fileID: 1769812022325792, guid: 6150caaa59a80ea4eb1996e1a6cb83ae, type: 2}
   mapWidth: 50
   mapHeight: 50
-  spaceBetweenBuildings: 3
+  spaceBetweenBuildings: 5
   xStreet: {fileID: 1596603604468510, guid: f633aa1ede2f3cf40a51aba598fd156c, type: 2}
   zStreet: {fileID: 1227664244776762, guid: 6ab4926ec73f96e4db6f928385295b00, type: 2}
   crossRoad: {fileID: 1460295434624004, guid: 9f43f14611248c840857ccc9c5f90f2a, type: 2}
@@ -166,11 +166,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pools:
   - tag: building1
-    prefab: {fileID: 1632157833474492, guid: 2d3d12465b9e9ef4dab3c91cd2047acf, type: 2}
+    prefab: {fileID: 1026843689591538, guid: ac6cbf6803fc1034dacba020efaf9612, type: 2}
     size: 30
   - tag: building2
-    prefab: {fileID: 1632157833474492, guid: a465693f0bcf58f4899c4e840324228d, type: 2}
+    prefab: {fileID: 1241840636786852, guid: 481d8d64ccfcca74a8d5738885dce638, type: 2}
     size: 30
   - tag: building3
-    prefab: {fileID: 1632157833474492, guid: 5bf48050faebbad4397a9b35c977f63c, type: 2}
+    prefab: {fileID: 1274556735613584, guid: 4b8b5c71ac03a16409b3dba454550edf, type: 2}
+    size: 30
+  - tag: building4
+    prefab: {fileID: 1112133886114940, guid: 21ba43917cedf374abf2708f49071e8f, type: 2}
+    size: 30
+  - tag: building5
+    prefab: {fileID: 1257708514654158, guid: 034255d47495cc64ba3518f22c7f7c6a, type: 2}
     size: 30
