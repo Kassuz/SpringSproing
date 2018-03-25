@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class ArmsController : MonoBehaviour
 {
@@ -15,7 +16,8 @@ public class ArmsController : MonoBehaviour
     [Header("Camera")]
     [SerializeField] private Transform cameraRoot;
     [SerializeField] private float cameraYTurnSpeed = 40.0f;
-
+    public AudioClip bicycleClip;
+    public AudioClip[] fartNoises;
     public int player;
     private Rigidbody rb;
     public Rigidbody head;
@@ -23,6 +25,7 @@ public class ArmsController : MonoBehaviour
     public ParticleSystem jumpEffect;
     public WeaponScript weaponScript;
     bool grounded;
+    AudioSource aSource;
 
     private void Awake()
     {
@@ -101,9 +104,13 @@ public class ArmsController : MonoBehaviour
             }
         }
 
+        if (rb.velocity.magnitude > 3f)
+        {
+            aSource.clip = bicycleClip;
+
+        }
         
     }
-
 
     private void LateUpdate()
     {
@@ -124,5 +131,7 @@ public class ArmsController : MonoBehaviour
         }
 
     }
+
+    
 
 }
