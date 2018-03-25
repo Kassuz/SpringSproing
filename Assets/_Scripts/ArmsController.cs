@@ -16,19 +16,18 @@ public class ArmsController : MonoBehaviour
     [SerializeField] private Transform cameraRoot;
     [SerializeField] private float cameraYTurnSpeed = 40.0f;
 
+    public int player;
     private Rigidbody rb;
-    public Rigidbody leftWeapon;
-    public SpringJoint shieldSpring;
-    public Transform testTransform;
-    public ConfigurableJoint testJoint;
     public Rigidbody head;
     public Rigidbody torso;
     public ParticleSystem jumpEffect;
+    public WeaponScript weaponScript;
     bool grounded;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        weaponScript.SetPlayerNumber(player);
     }
 
     private void OnCollisionStay(Collision collision)
@@ -44,61 +43,86 @@ public class ArmsController : MonoBehaviour
     private void FixedUpdate()
     {
         Movement();
-        ArmStuff();
     }
 
     void Movement()
     {
         Vector3 localVel = transform.InverseTransformDirection(rb.velocity);
-
-        if (Mathf.Abs(localVel.z) < maxSpeed)
+        if (player == 1)
         {
-            rb.AddForce(transform.forward * InputManager.Instance.P1InputLeftY * -150f);
-        }
+            if (Mathf.Abs(localVel.z) < maxSpeed)
+            {
+                rb.AddForce(transform.forward * InputManager.Instance.P1InputLeftY * -150f);
+            }
 
-        if (Mathf.Abs(localVel.x) < maxSpeed)
-        {
-            rb.AddForce(transform.right * InputManager.Instance.P1InputLeftX * 150f);
-        }
+            if (Mathf.Abs(localVel.x) < maxSpeed)
+            {
+                rb.AddForce(transform.right * InputManager.Instance.P1InputLeftX * 150f);
+            }
 
-        if (Mathf.Abs(rb.angularVelocity.y) < maxRotationSpeed)
-        {
-            float rotSpeed = -InputManager.Instance.P1InputRightX * rotationSpeed;
-            rb.rotation *= Quaternion.AngleAxis(rotSpeed, Vector3.up);
-        }
+            if (Mathf.Abs(rb.angularVelocity.y) < maxRotationSpeed)
+            {
+                float rotSpeed = -InputManager.Instance.P1InputRightX * rotationSpeed;
+                rb.rotation *= Quaternion.AngleAxis(rotSpeed, Vector3.up);
+            }
 
-        if (grounded && InputManager.Instance.P1JumpButton > 0.5f)
-        {
-            rb.AddForce(Vector3.up * 60f, ForceMode.Impulse);
-            head.AddForce(Vector3.up * 3f, ForceMode.Impulse);
-            torso.AddForce(Vector3.up * 60f, ForceMode.Impulse);
-            jumpEffect.Play();
-        }
-        
-    }
-
-    void ArmStuff()
-    {
-        leftWeapon.mass = 1f + InputManager.Instance.P1LeftTrigger * 5f;
-
-        if (InputManager.Instance.P1RightTrigger > 0.3f)
-        {
-            testJoint.targetPosition = testTransform.position;
-
+            if (grounded && InputManager.Instance.P1JumpButton > 0.5f)
+            {
+                rb.AddForce(Vector3.up * 60f, ForceMode.Impulse);
+                head.AddForce(Vector3.up * 3f, ForceMode.Impulse);
+                torso.AddForce(Vector3.up * 60f, ForceMode.Impulse);
+                jumpEffect.Play();
+            }
         }
         else
         {
-            testJoint.targetPosition = Vector3.zero;
+            if (Mathf.Abs(localVel.z) < maxSpeed)
+            {
+                rb.AddForce(transform.forward * InputManager.Instance.P2InputLeftY * -150f);
+            }
+
+            if (Mathf.Abs(localVel.x) < maxSpeed)
+            {
+                rb.AddForce(transform.right * InputManager.Instance.P2InputLeftX * 150f);
+            }
+
+            if (Mathf.Abs(rb.angularVelocity.y) < maxRotationSpeed)
+            {
+                float rotSpeed = -InputManager.Instance.P2InputRightX * rotationSpeed;
+                rb.rotation *= Quaternion.AngleAxis(rotSpeed, Vector3.up);
+            }
+
+            if (grounded && InputManager.Instance.P2JumpButton > 0.5f)
+            {
+                rb.AddForce(Vector3.up * 60f, ForceMode.Impulse);
+                head.AddForce(Vector3.up * 3f, ForceMode.Impulse);
+                torso.AddForce(Vector3.up * 60f, ForceMode.Impulse);
+                jumpEffect.Play();
+            }
         }
-       
+
+        
     }
+
 
     private void LateUpdate()
     {
-        float ySpeed =   InputManager.Instance.P1InputRightY * cameraYTurnSpeed * Time.deltaTime;
-        Quaternion newRot = Quaternion.AngleAxis(ySpeed, Vector3.right);
-        
-        cameraRoot.rotation *= newRot;
+
+        if (player == 1)
+        {
+            float ySpeed = InputManager.Instance.P1InputRightY * cameraYTurnSpeed * Time.deltaTime;
+            Quaternion newRot = Quaternion.AngleAxis(ySpeed, Vector3.right);
+
+            cameraRoot.rotation *= newRot;
+        }
+        else
+        {
+            float ySpeed = InputManager.Instance.P2InputRightY * cameraYTurnSpeed * Time.deltaTime;
+            Quaternion newRot = Quaternion.AngleAxis(ySpeed, Vector3.right);
+
+            cameraRoot.rotation *= newRot;
+        }
+
     }
 
 }

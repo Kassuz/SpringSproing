@@ -7,6 +7,8 @@ TagManager:
   - Ground
   - DestructableBuilding
   - Destroyer
+  - P1
+  - P2
   layers:
   - Default
   - TransparentFX
@@ -17,11 +19,11 @@ TagManager:
   - 
   - 
   - Spring
-  - Player
-  - Sword
-  - 
-  - 
-  - 
+  - Player1
+  - Player1Weapon
+  - Player2
+  - Player2Weapon
+  - NonColliding
   - 
   - 
   - 
