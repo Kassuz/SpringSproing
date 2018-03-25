@@ -22,7 +22,7 @@ public class BuildCity : MonoBehaviour {
     private void Start()
     {
         plane.localScale = new Vector3(mapWidth * spaceBetweenBuildings *(plane.localScale.x * 0.1f) ,1f , mapHeight * spaceBetweenBuildings * (plane.localScale.z * 0.1f));
-        plane.position = new Vector3((mapWidth*spaceBetweenBuildings*0.5f), -0.5f, (mapHeight * spaceBetweenBuildings * 0.5f));
+        plane.position = new Vector3((mapWidth*spaceBetweenBuildings*0.5f), -0.425f, (mapHeight * spaceBetweenBuildings * 0.5f));
 
         mapGrid = new int[mapWidth, mapHeight];
 

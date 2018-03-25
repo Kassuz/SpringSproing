@@ -13,17 +13,9 @@ public class MoveCube : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            rb.AddForce(Vector3.forward * cubeForce, ForceMode.Impulse);
-        }
-    }
-
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("DestructableBuilding"))
+        if (collision.gameObject.CompareTag("DestructableBuilding") && rb.velocity.magnitude > cubeForce)
         {
             Vector3 spawnPos = collision.transform.parent.transform.position;
             collision.gameObject.SetActive(false);
