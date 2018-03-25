@@ -49,8 +49,9 @@ public class BuildingPool : MonoBehaviour {
             Debug.Log("tag " + tag + " doesn't exists");
             return null;
         }
-
+        poolDictionary[tag].Peek().SetActive(false);
         GameObject objToSpawn = poolDictionary[tag].Dequeue();
+        //objToSpawn.SetActive(false);
         objToSpawn.SetActive(true);
         objToSpawn.transform.position = position;
         objToSpawn.transform.rotation = rotation;

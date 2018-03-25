@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class BuildCity : MonoBehaviour {
 
+    public Transform plane;
+
     //Building stuff
     public GameObject[] buildings;
     public int mapWidth = 20;
     public int mapHeight = 20;
     public int spaceBetweenBuildings = 3;
-    public float seed;
 
     //Street stuff
     public GameObject xStreet;
@@ -20,6 +21,9 @@ public class BuildCity : MonoBehaviour {
 
     private void Start()
     {
+        plane.localScale = new Vector3(mapWidth * spaceBetweenBuildings *(plane.localScale.x * 0.1f) ,1f , mapHeight * spaceBetweenBuildings * (plane.localScale.z * 0.1f));
+        plane.position = new Vector3((mapWidth*spaceBetweenBuildings*0.5f), -0.5f, (mapHeight * spaceBetweenBuildings * 0.5f));
+
         mapGrid = new int[mapWidth, mapHeight];
 
         for (int h = 0; h < mapHeight; h++)
@@ -29,7 +33,7 @@ public class BuildCity : MonoBehaviour {
                 mapGrid[h, w] = (int)(Mathf.PerlinNoise(w / 10f, h / 10f) * 10);
             }
         }
-
+        
         int x = 0;
         for (int n = 0; n < 50; n++)
         {
@@ -59,10 +63,9 @@ public class BuildCity : MonoBehaviour {
         {
             for (int w = 0; w < mapWidth; w++)
             {
-                //spaceBetweenBuildings = (int)(Mathf.PerlinNoise(w / 5f, h / 5f) * 10);
-                int result = mapGrid[w, h]; //(int)(Mathf.PerlinNoise(w / 5f + seed, h / 5f + seed) * 12);
-                //Debug.Log(result);
+                int result = mapGrid[w, h];
                 Vector3 pos = new Vector3(w * spaceBetweenBuildings, 0, h * spaceBetweenBuildings);
+
                 if (result < -2)
                     Instantiate(crossRoad, pos, crossRoad.transform.rotation);
                 else if (result < -1)
