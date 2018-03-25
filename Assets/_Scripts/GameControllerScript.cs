@@ -1,16 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameControllerScript : MonoBehaviour {
 
     public float p1Health;
     public float p2Health;
 
+    public Slider p1HealthSlider;
+    public Slider p2HealthSlider;
+
     private void Awake()
     {
         p1Health = 100f;
         p2Health = 100f;
+
+        p1HealthSlider.maxValue = p1Health;
+        p2HealthSlider.maxValue = p2Health;
     }
 
     public void TakeDamage(int player, float dmg)
@@ -29,6 +36,9 @@ public class GameControllerScript : MonoBehaviour {
 
     private void Update()
     {
+        p1HealthSlider.value = p1Health;
+        p2HealthSlider.value = p2Health;
+
         if (p1Health <= 0f)
         {
             Debug.Log("PLAYER 2 WINS PERKELE!!!");
