@@ -9,6 +9,7 @@ TagManager:
   - Destroyer
   - P1
   - P2
+  - Bomb
   layers:
   - Default
   - TransparentFX

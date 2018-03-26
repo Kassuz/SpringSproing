@@ -15,22 +15,42 @@ public class MoveCube : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        Vector3 spawnPos = collision.transform.parent.transform.position;
         if (collision.gameObject.CompareTag("DestructableBuilding")) //&& rb.velocity.magnitude > cubeForce)
         {
             Debug.Log(collision.gameObject.name);
-            Vector3 spawnPos = collision.transform.parent.transform.position;
+
             collision.gameObject.SetActive(false);
-            
+
             if (collision.gameObject.name == "New_Block_01_Full")
+            {
                 BuildingPool.Instance.SpawnFromPool("building1", spawnPos, Quaternion.identity);
+                BuildingPool.Instance.SpawnFromPool("BildDestruction", spawnPos, Quaternion.identity);
+            }
             else if (collision.gameObject.name == "New_Block_02_Full")
+            {
                 BuildingPool.Instance.SpawnFromPool("building2", spawnPos, Quaternion.identity);
+                BuildingPool.Instance.SpawnFromPool("BildDestruction", spawnPos, Quaternion.identity);
+            }
             else if (collision.gameObject.name == "New_Block_03_Full")
+            {
                 BuildingPool.Instance.SpawnFromPool("building3", spawnPos, Quaternion.identity);
+                BuildingPool.Instance.SpawnFromPool("BildDestruction", spawnPos, Quaternion.identity);
+            }
             else if (collision.gameObject.name == "New_Block_04_Full")
+            {
                 BuildingPool.Instance.SpawnFromPool("building4", spawnPos, Quaternion.identity);
+                BuildingPool.Instance.SpawnFromPool("BildDestruction", spawnPos, Quaternion.identity);
+            }
             else if (collision.gameObject.name == "New_Block_05_Full")
+            {
                 BuildingPool.Instance.SpawnFromPool("building5", spawnPos, Quaternion.identity);
+                BuildingPool.Instance.SpawnFromPool("BildDestruction", spawnPos, Quaternion.identity);
+            }
+        }
+        if (collision.gameObject.CompareTag("Bomb"))
+        {
+
         }
     }
 
